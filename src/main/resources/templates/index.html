@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Download Álbum Bandcamp</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.9.3/css/bulma.min.css">
+</head>
+<body>
+    <section class="section">
+        <div class="container">
+            <h1 class="title">Download Álbum do Bandcamp</h1>
+            <form th:action="@{/download}" method="post">
+                <div class="field">
+                    <label class="label" for="albumUrl">Insira o link do álbum:</label>
+                    <div class="control">
+                        <input class="input" type="text" id="albumUrl" name="albumUrl" required placeholder="https://...">
+                    </div>
+                </div>
+                <div class="control">
+                    <button class="button is-primary" type="submit">Download</button>
+                </div>
+            </form>
+
+            <p class="has-text-danger" th:text="${message}"></p> <!-- Exibe mensagens de erro -->
+        </div>
+    </section>
+</body>
+</html>
