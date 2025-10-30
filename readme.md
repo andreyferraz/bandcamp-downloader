@@ -17,24 +17,79 @@ Este projeto é uma aplicação Spring Boot que permite aos usuários baixar ál
 
 ## Pré-requisitos
 - JDK 17
-- Maven
+- Maven (incluído via Maven Wrapper - `mvnw`)
 
 ## Como Executar
+
+### Opção 1: Usando o script (Recomendado)
+O projeto inclui scripts que detectam automaticamente o Java 17 instalado no seu sistema:
+
 1. Clone o repositório:
    ```bash
    git clone <URL_DO_REPOSITORIO>
+   ```
 
 2. Navegue até o diretório do projeto:
    ```bash
    cd bandcamp-downloader
+   ```
+
+3. Execute o script de execução:
+   ```bash
+   ./run.sh
+   ```
+
+4. Acesse a aplicação em seu navegador:
+   ```
+   http://localhost:8080
+   ```
+
+**Scripts disponíveis:**
+- `./run.sh` - Compila (se necessário) e executa o projeto
+- `./build.sh` - Apenas compila o projeto
+
+Os scripts tentarão encontrar automaticamente o Java 17 nas seguintes localizações:
+- `/Library/Java/JavaVirtualMachines/` (instalações padrão no macOS)
+- `~/.sdkman/candidates/java/` (SDKMAN)
+- Usando `/usr/libexec/java_home -v 17`
+
+### Opção 2: Execução manual
+Se você já tem o `JAVA_HOME` configurado para Java 17:
+
+1. Clone o repositório:
+   ```bash
+   git clone <URL_DO_REPOSITORIO>
+   ```
+
+2. Navegue até o diretório do projeto:
+   ```bash
+   cd bandcamp-downloader
+   ```
 
 3. Execute o projeto com Maven:
    ```bash
-   mvn spring-boot:run
+   ./mvnw spring-boot:run
+   ```
 
 4. Acesse a aplicação em seu navegador:
-   ```bash
+   ```
    http://localhost:8080
+   ```
+
+### Instalando Java 17 (se necessário)
+Se você não tem o Java 17 instalado, você pode instalá-lo usando:
+
+**Homebrew:**
+```bash
+brew install openjdk@17
+```
+
+**SDKMAN:**
+```bash
+sdk install java 17-tem
+```
+
+Ou baixe diretamente de: https://adoptium.net/temurin/releases/?version=17
 
 ## Uso
 - 1. Insira a URL do álbum do Bandcamp que você deseja baixar.
